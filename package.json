@@ -1,8 +1,19 @@
 {
-  "name": "vite-project",
-  "private": true,
+  "name": "vue3-ui-component",
+  "private": false,
   "version": "0.0.0",
   "type": "module",
+  "main": "./dist/v-progress-rect.umd.js",
+  "module": "./dist/v-progress-rect.es.js",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/v-progress-rect.es.js",
+      "require": "./dist/v-progress-rect.umd.js"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",

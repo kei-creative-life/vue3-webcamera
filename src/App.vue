@@ -1,7 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import ProgressRectangle from './components/ProgressRectangle.vue'
+</script>
 
 <template>
-  <HelloWorld msg="Vite + Vue" />
+  <ProgressRectangle />
 </template>
 
 <style scoped></style>
