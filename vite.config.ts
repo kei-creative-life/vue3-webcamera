@@ -12,7 +12,7 @@ export default defineConfig({
     }),
     typescript2({
       check: false,
-      include: ['src/components/**/*.vue'],
+      include: ['packages/src/components/**/*.vue'],
       tsconfigOverride: {
         compilerOptions: {
           outDir: 'dist',
@@ -27,14 +27,14 @@ export default defineConfig({
   build: {
     cssCodeSplit: true,
     lib: {
-      entry: 'src/components/main.ts',
+      entry: 'packages/src/components/main.ts',
       name: 'vUIComponent',
       formats: ['es', 'cjs', 'umd'],
       fileName: (format) => `vUIComponent.${format}.js`,
     },
     rollupOptions: {
       input: {
-        main: path.resolve(__dirname, 'src/components/main.ts'),
+        main: path.resolve(__dirname, 'packages/src/components/main.ts'),
       },
       external: ['vue'],
       output: {
@@ -52,7 +52,7 @@ export default defineConfig({
   server: { port: 3800 },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'),
+      '@': path.resolve(__dirname, 'packages/src'),
     },
   },
 })

@@ -21,9 +21,9 @@
     "declarationDir": "dist",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["packages/src/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "include": ["packages/src/**/*.ts", "packages/src/**/*.d.ts", "packages/src/**/*.tsx", "packages/src/**/*.vue", "packages/src/dev/main.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

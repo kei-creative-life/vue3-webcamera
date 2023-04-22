@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { VerticalTimeLine } from './components'
+import VerticalTimeLine from '../components/VerticalTimeLine/VerticalTimeLine.vue'
 
 const sections = [
   { title: 'タイトル1', content: 'ここに文章を入れます。ここに文章を入れます。ここに文章を入れます' },
