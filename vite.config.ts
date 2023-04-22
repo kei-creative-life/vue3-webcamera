@@ -33,7 +33,7 @@ export default defineConfig({
     },
     rollupOptions: {
       input: {
-        main: path.resolve(__dirname, 'src/components/main.ts'),
+        main: path.resolve(__dirname, 'src/framework.ts'),
       },
       external: ['vue'],
       output: {
