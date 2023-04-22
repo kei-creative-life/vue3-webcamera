@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { computed, defineProps } from 'vue'
+import SvgIcon from '@/components/Common/SvgIcon.vue'
+import { mdiApple, mdiFolderOpen } from '@mdi/js'
 
 const props = defineProps({
   text: { type: String, default: '' },
@@ -38,10 +40,9 @@ const styles = computed(() => ({
     <div class="terminal-box_content">
       <div v-if="!icons" class="terminal-box_icon-group">
         <div class="terminal-box_icon-wrapper">
-          <mdicon class="terminal-box_icon-first" name="apple" :width="20" :height="20" />
+          <svg-icon class="terminal-box_icon-first" type="mdi" :path="mdiApple" :size="20" />
           <div class="terminal-box_icon-second-wrapper">
-            <mdicon class="terminal-box_icon-second" name="folder-open" :width="20" :height="20" />
-            <!-- <span class="terminal-box_icon-path">~/Users/kengo.yamamoto/project_self/codebox-blog</span> -->
+            <svg-icon class="terminal-box_icon-second" type="mdi" :path="mdiFolderOpen" :size="20" />
           </div>
         </div>
       </div>
@@ -52,7 +53,7 @@ const styles = computed(() => ({
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="css">
 .terminal-box {
   position: relative;
   max-width: var(--max-width);
@@ -127,7 +128,7 @@ const styles = computed(() => ({
   right: -30px;
   content: '';
 }
-.terminal-box_icon-first {
+span.terminal-box_icon-first {
   position: relative;
   margin: 0 1em;
   color: black;
@@ -136,14 +137,10 @@ const styles = computed(() => ({
   display: flex;
   align-items: center;
 }
-.terminal-box_icon-second {
+
+span.terminal-box_icon-second {
   position: relative;
   margin: 0 1em;
   color: white;
 }
-
-/* .terminal-box_icon-path {
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
-} */
 </style>

@@ -10,4 +10,4 @@ parserOptions:
 plugins:
   - vue
   - '@typescript-eslint'
-rules: {}
+rules: { vue/max-attributes-per-line: off }

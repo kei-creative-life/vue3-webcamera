@@ -27,18 +27,19 @@ export default defineConfig({
   build: {
     cssCodeSplit: true,
     lib: {
-      entry: 'src/components/v-ui-component.ts',
-      name: 'v-ui-component',
-      fileName: (format) => `v-ui-component.${format}.js`,
+      entry: 'src/components/main.ts',
+      name: 'vUIComponent',
+      formats: ['es', 'cjs', 'umd'],
+      fileName: (format) => `vUIComponent.${format}.js`,
     },
     rollupOptions: {
       input: {
-        main: path.resolve(__dirname, 'src/framework.ts'),
+        main: path.resolve(__dirname, 'src/components/main.ts'),
       },
       external: ['vue'],
       output: {
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name === 'main.css') return 'my-library-vue-ts.css'
+          if (assetInfo.name === 'main.css') return 'vUIComponent.css'
           return assetInfo.name
         },
         exports: 'named',
