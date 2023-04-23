@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+// import vueJsx from '@vitejs/plugin-vue-jsx'
 import vue from '@vitejs/plugin-vue'
 import typescript2 from 'rollup-plugin-typescript2'
 import dts from 'vite-plugin-dts'
@@ -12,7 +13,7 @@ export default defineConfig({
     }),
     typescript2({
       check: false,
-      include: ['packages/src/components/**/*.vue'],
+      include: ['packages/src/*/**.vue'],
       tsconfigOverride: {
         compilerOptions: {
           outDir: 'dist',
