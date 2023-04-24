@@ -6,10 +6,11 @@ import './CameraUI.css'
 const video = ref<HTMLVideoElement | null>()
 const canvas = ref()
 
+const isPlayVideo = ref(false)
 const currentStream = ref<MediaStream | null>(null)
 const currentTrack = ref<MediaStreamTrack | null>(null)
 
-const decideConstraints = async (): Promise<any> => {
+const setConstraints = async (): Promise<any> => {
   return {
     video: {
       width: {
@@ -21,15 +22,17 @@ const decideConstraints = async (): Promise<any> => {
   }
 }
 
-const start = async (): Promise<void> => {
+const cameraStart = async (): Promise<void> => {
   if (!video.value) return
 
-  await stop()
+  await cameraStop()
 
   try {
-    const constraints = await decideConstraints()
+    const constraints = await setConstraints()
 
+    // MediaStream オブジェクトを取得する
     currentStream.value = await navigator.mediaDevices.getUserMedia(constraints)
+    // MediaStreamTrack オブジェクトのリストで、 MediaStream オブジェクトに格納されているものの中で kind 属性が video に設定されている最初のものを返却する
     currentTrack.value = currentStream.value.getVideoTracks()[0]
 
     video.value.srcObject = currentStream.value
@@ -39,7 +42,7 @@ const start = async (): Promise<void> => {
   }
 }
 
-const stop = async (): Promise<void> => {
+const cameraStop = async (): Promise<void> => {
   if (!video.value) return
   video.value.pause()
 
@@ -51,17 +54,17 @@ const stop = async (): Promise<void> => {
 }
 
 onMounted(() => {
-  start()
+  cameraStart()
 })
 
 onBeforeMount(() => {
-  stop()
+  cameraStop()
 })
 </script>
 
 <template>
   <div class="camera-ui">
     <canvas ref="canvas" class="camera-ui_canvas" />
-    <video ref="video" class="camera-ui_video" autoplay playsinline muted />
+    <video ref="video" class="camera-ui_video" autoplay playsinline muted @play="isPlayVideo = true" />
   </div>
 </template>
