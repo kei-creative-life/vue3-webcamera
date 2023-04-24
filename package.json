@@ -29,9 +29,11 @@
   },
   "dependencies": {
     "@mdi/js": "^7.2.96",
+    "@types/ua-parser-js": "^0.7.36",
     "@vitejs/plugin-vue-jsx": "^3.0.1",
     "mdi-vue": "^3.0.13",
     "path": "^0.12.7",
+    "ua-parser-js": "^1.0.35",
     "vue": "^3.2.45"
   },
   "devDependencies": {

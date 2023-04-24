@@ -7,7 +7,7 @@ interface VueComponents {
 
 const _components: VueComponents = components
 
-const createUiComponent = {
+const Vue3WebCamera = {
   install(app: App) {
     for (const key in _components) {
       app.component(key, _components[key])
@@ -15,4 +15,4 @@ const createUiComponent = {
   },
 }
 
-export default createUiComponent
+export default Vue3WebCamera
